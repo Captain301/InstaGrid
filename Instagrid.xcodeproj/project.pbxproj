@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151E22DA21ED810500259A72 /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E22D921ED810500259A72 /* GridScreen.swift */; };
+		1532FF7521F8E82800BD6C4C /* GridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1532FF7421F8E82800BD6C4C /* GridButton.swift */; };
 		1589B44121ECC4E3006373D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589B44021ECC4E3006373D4 /* AppDelegate.swift */; };
 		1589B44321ECC4E3006373D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589B44221ECC4E3006373D4 /* ViewController.swift */; };
 		1589B44621ECC4E3006373D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1589B44421ECC4E3006373D4 /* Main.storyboard */; };
@@ -17,11 +17,11 @@
 		1589B45C21ECC6BB006373D4 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1589B45B21ECC6BB006373D4 /* ThirstySoftRegular.otf */; };
 		1589B45E21ECC6CF006373D4 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1589B45D21ECC6CF006373D4 /* Delm-Medium.otf */; };
 		1589B46021ECCC03006373D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1589B45F21ECCC03006373D4 /* Default-568h@2x.png */; };
-		1589B46221ECDB5D006373D4 /* GridSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589B46121ECDB5D006373D4 /* GridSelect.swift */; };
+		1589B46221ECDB5D006373D4 /* GridChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589B46121ECDB5D006373D4 /* GridChoiceButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		151E22D921ED810500259A72 /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
+		1532FF7421F8E82800BD6C4C /* GridButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridButton.swift; sourceTree = "<group>"; };
 		1589B43D21ECC4E3006373D4 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1589B44021ECC4E3006373D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1589B44221ECC4E3006373D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +33,7 @@
 		1589B45B21ECC6BB006373D4 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		1589B45D21ECC6CF006373D4 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		1589B45F21ECCC03006373D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1589B46121ECDB5D006373D4 /* GridSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSelect.swift; sourceTree = "<group>"; };
+		1589B46121ECDB5D006373D4 /* GridChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridChoiceButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				1589B44421ECC4E3006373D4 /* Main.storyboard */,
-				1589B46121ECDB5D006373D4 /* GridSelect.swift */,
-				151E22D921ED810500259A72 /* GridScreen.swift */,
+				1589B46121ECDB5D006373D4 /* GridChoiceButton.swift */,
+				1532FF7421F8E82800BD6C4C /* GridButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,10 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1589B44321ECC4E3006373D4 /* ViewController.swift in Sources */,
-				1589B46221ECDB5D006373D4 /* GridSelect.swift in Sources */,
+				1532FF7521F8E82800BD6C4C /* GridButton.swift in Sources */,
+				1589B46221ECDB5D006373D4 /* GridChoiceButton.swift in Sources */,
 				1589B44121ECC4E3006373D4 /* AppDelegate.swift in Sources */,
 				1589B44921ECC4E3006373D4 /* Instagrid.xcdatamodeld in Sources */,
-				151E22DA21ED810500259A72 /* GridScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

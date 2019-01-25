@@ -8,6 +8,9 @@
 
 import UIKit
 
-class GridButton: UIButton {
+class GridButton: UIButton{
 
+    var imageAssigned: Bool = false
+    
+    
 }

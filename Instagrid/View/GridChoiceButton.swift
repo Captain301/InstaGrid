@@ -17,8 +17,8 @@ class GridChoiceButton: UIButton {
     let select = UIImage(named: "validate")
     let standard = UIImage(named: "standard")
     
-    func changeState(_ style: States){
-        switch style {
+    func changeState(_ states: States){
+        switch states {
         case .standard:
             self.setBackgroundImage(standard, for: .normal)
         case .selected:
