@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    @IBOutlet weak var GridView: UIView!
     var currentImageButton: GridButton!
     required init?(coder aDecoder: NSCoder) {
         self.currentImageButton = btnGrid2
@@ -123,10 +125,53 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        startParameter()
+        //decalred gesture recognizer on GridView
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
+        GridView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    //switch for different state of gesture
+    @objc func dragGridView(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            transformGridViewWith(gesture: sender)
+        case .ended, .cancelled:
+            afterDragGridView()
+        default:
+            break
+        }
+    }
+    
+    //Change Y position to GridView
+    private func transformGridViewWith(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: GridView)
+        GridView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        
+    }
+    
+    // réinitialized old UIview (GridView) position and shared image.
+    private func afterDragGridView() {
+        GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+        sharedGridImage()
+    }
+    
+    // use this function to execute a screenshot of GridView and transform this UIView to UIImage for shared this.
+    private func recupGridImage(view: UIView) -> UIImage{
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
+    
+    // function for shared UIImage to application/Library or other.
+    private func sharedGridImage(){
+        let image = recupGridImage(view: GridView)
+        let items = [image]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     

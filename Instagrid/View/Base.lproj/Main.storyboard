@@ -132,6 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="GridView" destination="3RC-cE-tql" id="lB9-oZ-bxu"/>
                         <outlet property="btnGrid1" destination="0yL-yH-554" id="aW5-az-bpL"/>
                         <outlet property="btnGrid2" destination="c9Y-4a-DaA" id="UPa-zV-Exz"/>
                         <outlet property="btnGrid3" destination="G2I-wl-dx0" id="bAH-w3-Clf"/>
