@@ -15,9 +15,9 @@ class GridChoiceButton: UIButton {
     }
     
     let select = UIImage(named: "validate")
-    let standard1 = UIImage(named: "Button1")
-    let standard2 = UIImage(named: "Button2")
-    let standard3 = UIImage(named: "Button3")
+    let standard1 = UIImage(named: "Boutton1")
+    let standard2 = UIImage(named: "Boutton2")
+    let standard3 = UIImage(named: "Boutton3")
     
     func changeState(_ states: States, Btn: Int){
         switch states {
