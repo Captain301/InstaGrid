@@ -15,12 +15,16 @@ class GridChoiceButton: UIButton {
     }
     
     let select = UIImage(named: "validate")
-    let standard = UIImage(named: "standard")
+    let standard1 = UIImage(named: "Button1")
+    let standard2 = UIImage(named: "Button2")
+    let standard3 = UIImage(named: "Button3")
     
-    func changeState(_ states: States){
+    func changeState(_ states: States, Btn: Int){
         switch states {
         case .standard:
-            self.setBackgroundImage(standard, for: .normal)
+            if Btn == 1 { self.setBackgroundImage(standard1, for: .normal) }
+            if Btn == 2 { self.setBackgroundImage(standard2, for: .normal) }
+            if Btn == 3 { self.setBackgroundImage(standard3, for: .normal) }
         case .selected:
             self.setBackgroundImage(select, for: .normal)
         }

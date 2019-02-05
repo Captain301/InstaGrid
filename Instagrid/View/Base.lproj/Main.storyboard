@@ -85,7 +85,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-Nc-fRG" userLabel="Button2" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="141" y="536" width="93" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="standard"/>
+                                <state key="normal" backgroundImage="Boutton2"/>
                                 <connections>
                                     <action selector="btnGridSelectAct2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Lg-9X-Doo"/>
                                 </connections>
@@ -93,7 +93,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA4-Nd-4Rk" userLabel="Button3" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="244" y="536" width="93" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="standard"/>
+                                <state key="normal" backgroundImage="Boutton3"/>
                                 <connections>
                                     <action selector="btnGridSelectAct3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgI-gN-xbc"/>
                                 </connections>
@@ -101,7 +101,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKz-UU-hja" userLabel="Button1" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="37" y="536" width="93" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="standard"/>
+                                <state key="normal" backgroundImage="Boutton1"/>
                                 <connections>
                                     <action selector="btnGridSelectAct1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vK-Sa-qxP"/>
                                 </connections>
@@ -148,6 +148,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="standard" width="104" height="104"/>
+        <image name="Boutton1" width="162" height="160"/>
+        <image name="Boutton2" width="162" height="160"/>
+        <image name="Boutton3" width="72" height="70"/>
     </resources>
 </document>

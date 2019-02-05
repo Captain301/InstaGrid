@@ -70,10 +70,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func userSelectButton(btn: GridChoiceButton){
-        btnGridSelect1.changeState(.standard)
-        btnGridSelect2.changeState(.standard)
-        btnGridSelect3.changeState(.standard)
-        btn.changeState(.selected)
+        btnGridSelect1.changeState(.standard, Btn: 1)
+        btnGridSelect2.changeState(.standard, Btn: 2)
+        btnGridSelect3.changeState(.standard, Btn: 3)
+        btn.changeState(.selected, Btn: 0)
     }
     
     func refreshButtonTitle(){
