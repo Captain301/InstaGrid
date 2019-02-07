@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,15 +23,142 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RC-cE-tql">
-                                <rect key="frame" x="37" y="209" width="300" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe up to shared" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rD9-dh-zMw">
+                                <rect key="frame" x="7" y="170.5" width="196" height="34"/>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-cn-Ija">
+                                <rect key="frame" x="94" y="120.5" width="22" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hFO-cn-Ija" secondAttribute="height" multiplier="11:21" id="UCR-kU-oKG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UCR-kU-oKG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="UCR-kU-oKG"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-jk-yse">
+                                <rect key="frame" x="376" y="0.0" width="122" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="SfI-zT-w1A"/>
+                                    <constraint firstAttribute="height" constant="27" id="f4N-xR-QJc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SfI-zT-w1A"/>
+                                        <exclude reference="f4N-xR-QJc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="SfI-zT-w1A"/>
+                                        <include reference="f4N-xR-QJc"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKz-UU-hja" userLabel="Button1" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="569" y="61.5" width="78" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="FyP-rP-WXv"/>
+                                    <constraint firstAttribute="width" secondItem="RKz-UU-hja" secondAttribute="height" multiplier="1:1" id="Lxi-3a-5rz"/>
+                                    <constraint firstAttribute="width" constant="93" id="tEA-4a-gIc"/>
+                                    <constraint firstAttribute="width" constant="78" id="to9-uv-ryH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Boutton1"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FyP-rP-WXv"/>
+                                        <exclude reference="to9-uv-ryH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="FyP-rP-WXv"/>
+                                        <exclude reference="Lxi-3a-5rz"/>
+                                        <exclude reference="tEA-4a-gIc"/>
+                                        <include reference="to9-uv-ryH"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnGridSelectAct1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vK-Sa-qxP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-Nc-fRG" userLabel="Button2" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="569" y="234.5" width="78" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="0nz-gg-buF"/>
+                                    <constraint firstAttribute="width" constant="78" id="Bx9-AK-c0c"/>
+                                    <constraint firstAttribute="width" secondItem="q4p-Nc-fRG" secondAttribute="height" multiplier="1:1" id="Kz7-4c-YQd"/>
+                                    <constraint firstAttribute="width" constant="93" id="qJT-fc-BiP"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Boutton2"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0nz-gg-buF"/>
+                                        <exclude reference="Bx9-AK-c0c"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0nz-gg-buF"/>
+                                        <include reference="Bx9-AK-c0c"/>
+                                        <exclude reference="Kz7-4c-YQd"/>
+                                        <exclude reference="qJT-fc-BiP"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnGridSelectAct2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Lg-9X-Doo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA4-Nd-4Rk" userLabel="Button3" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="569" y="148.5" width="78" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="Hwo-7z-02I"/>
+                                    <constraint firstAttribute="width" secondItem="eA4-Nd-4Rk" secondAttribute="height" multiplier="1:1" id="RK6-Dg-7iN"/>
+                                    <constraint firstAttribute="width" constant="78" id="YGu-BF-enX"/>
+                                    <constraint firstAttribute="width" constant="93" id="co5-Ev-a3j"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Boutton3"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hwo-7z-02I"/>
+                                        <exclude reference="YGu-BF-enX"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Hwo-7z-02I"/>
+                                        <exclude reference="RK6-Dg-7iN"/>
+                                        <include reference="YGu-BF-enX"/>
+                                        <exclude reference="co5-Ev-a3j"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="btnGridSelectAct3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgI-gN-xbc"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RC-cE-tql">
+                                <rect key="frame" x="310" y="62" width="251" height="251"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yL-yH-554" customClass="GridButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="138" height="140"/>
+                                        <rect key="frame" x="8" y="8" width="112" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
@@ -44,7 +171,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9Y-4a-DaA" customClass="GridButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="154" y="8" width="138" height="140"/>
+                                        <rect key="frame" x="130" y="8" width="113" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
@@ -56,7 +183,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2I-wl-dx0" customClass="GridButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="156" width="284" height="136"/>
+                                        <rect key="frame" x="8" y="129" width="235" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
@@ -68,7 +195,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0a-FI-2DD" customClass="GridButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="154" y="156" width="138" height="136"/>
+                                        <rect key="frame" x="130" y="129" width="113" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
@@ -81,55 +208,120 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1228597537" green="0.4528756142" blue="0.63528376819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3RC-cE-tql" secondAttribute="height" id="KuN-vB-Rsu"/>
+                                    <constraint firstAttribute="height" constant="251" id="lqw-XQ-XQW"/>
+                                    <constraint firstAttribute="width" constant="251" id="sJZ-xC-ZnB"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lqw-XQ-XQW"/>
+                                        <exclude reference="sJZ-xC-ZnB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="KuN-vB-Rsu"/>
+                                        <include reference="lqw-XQ-XQW"/>
+                                        <include reference="sJZ-xC-ZnB"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-Nc-fRG" userLabel="Button2" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="141" y="536" width="93" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Boutton2"/>
-                                <connections>
-                                    <action selector="btnGridSelectAct2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Lg-9X-Doo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA4-Nd-4Rk" userLabel="Button3" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="244" y="536" width="93" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Boutton3"/>
-                                <connections>
-                                    <action selector="btnGridSelectAct3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgI-gN-xbc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKz-UU-hja" userLabel="Button1" customClass="GridChoiceButton" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="37" y="536" width="93" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Boutton1"/>
-                                <connections>
-                                    <action selector="btnGridSelectAct1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vK-Sa-qxP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-jk-yse">
-                                <rect key="frame" x="119" y="20" width="137" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="swip up to shared" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rD9-dh-zMw">
-                                <rect key="frame" x="64" y="149" width="246.33333333333337" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="^" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-cn-Ija">
-                                <rect key="frame" x="172" y="99" width="31" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.74638754129999996" green="0.85979455709999997" blue="0.90904974940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eA4-Nd-4Rk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5Kh-qV-Afj"/>
+                            <constraint firstItem="yhn-jk-yse" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7G5-pM-dXD"/>
+                            <constraint firstItem="q4p-Nc-fRG" firstAttribute="leading" secondItem="3RC-cE-tql" secondAttribute="trailing" constant="8" id="8Kb-tK-QNO"/>
+                            <constraint firstItem="3RC-cE-tql" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Or-hf-lIr"/>
+                            <constraint firstItem="hFO-cn-Ija" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="8yA-3z-Nqh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eA4-Nd-4Rk" secondAttribute="trailing" constant="20" id="BxH-W8-Qvx"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GK9-c5-Cp9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RKz-UU-hja" secondAttribute="bottom" constant="2" id="Jok-ot-W2K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yhn-jk-yse" secondAttribute="trailing" constant="169" id="Kee-Cr-MvC"/>
+                            <constraint firstItem="yhn-jk-yse" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MlX-qN-R7P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q4p-Nc-fRG" secondAttribute="trailing" constant="20" id="Qoa-5A-eRK"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="SgL-zJ-4uQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RKz-UU-hja" secondAttribute="trailing" constant="20" id="Si6-Lq-RYy"/>
+                            <constraint firstItem="q4p-Nc-fRG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Smh-XP-GSL"/>
+                            <constraint firstItem="q4p-Nc-fRG" firstAttribute="top" secondItem="eA4-Nd-4Rk" secondAttribute="bottom" constant="8" id="WYg-hr-ZxT"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="top" secondItem="hFO-cn-Ija" secondAttribute="bottom" constant="8" id="Y1s-ID-PSY"/>
+                            <constraint firstItem="hFO-cn-Ija" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="94" id="b3I-30-M6L"/>
+                            <constraint firstItem="eA4-Nd-4Rk" firstAttribute="leading" secondItem="q4p-Nc-fRG" secondAttribute="trailing" constant="10" id="bii-hU-RZO"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="cwy-xK-zYC"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="top" secondItem="hFO-cn-Ija" secondAttribute="bottom" constant="8" id="cxh-PT-LFo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q4p-Nc-fRG" secondAttribute="bottom" constant="2" id="fEN-lc-dky"/>
+                            <constraint firstItem="q4p-Nc-fRG" firstAttribute="leading" secondItem="RKz-UU-hja" secondAttribute="trailing" constant="11" id="ktX-uh-EaR"/>
+                            <constraint firstItem="yhn-jk-yse" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nx9-hZ-TAi"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pvM-ED-NKA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eA4-Nd-4Rk" secondAttribute="bottom" constant="2" id="tpp-yc-MPM"/>
+                            <constraint firstItem="rD9-dh-zMw" firstAttribute="top" secondItem="hFO-cn-Ija" secondAttribute="bottom" constant="2" id="vYh-Uz-otz"/>
+                            <constraint firstItem="hFO-cn-Ija" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xfD-5h-EFi"/>
+                            <constraint firstItem="yhn-jk-yse" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="277" id="yz7-2l-ofH"/>
+                            <constraint firstItem="eA4-Nd-4Rk" firstAttribute="top" secondItem="RKz-UU-hja" secondAttribute="bottom" constant="9" id="zVr-f1-pCr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3RC-cE-tql"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BxH-W8-Qvx"/>
+                                <exclude reference="Kee-Cr-MvC"/>
+                                <exclude reference="Qoa-5A-eRK"/>
+                                <exclude reference="Si6-Lq-RYy"/>
+                                <exclude reference="nx9-hZ-TAi"/>
+                                <exclude reference="yz7-2l-ofH"/>
+                                <exclude reference="GK9-c5-Cp9"/>
+                                <exclude reference="SgL-zJ-4uQ"/>
+                                <exclude reference="Y1s-ID-PSY"/>
+                                <exclude reference="cwy-xK-zYC"/>
+                                <exclude reference="cxh-PT-LFo"/>
+                                <exclude reference="8yA-3z-Nqh"/>
+                                <exclude reference="b3I-30-M6L"/>
+                                <exclude reference="8Kb-tK-QNO"/>
+                                <exclude reference="WYg-hr-ZxT"/>
+                                <exclude reference="5Kh-qV-Afj"/>
+                                <exclude reference="zVr-f1-pCr"/>
+                                <exclude reference="8Or-hf-lIr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <include reference="3RC-cE-tql"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BxH-W8-Qvx"/>
+                                <exclude reference="Jok-ot-W2K"/>
+                                <include reference="Kee-Cr-MvC"/>
+                                <include reference="Qoa-5A-eRK"/>
+                                <include reference="Si6-Lq-RYy"/>
+                                <exclude reference="fEN-lc-dky"/>
+                                <exclude reference="tpp-yc-MPM"/>
+                                <exclude reference="7G5-pM-dXD"/>
+                                <exclude reference="MlX-qN-R7P"/>
+                                <include reference="nx9-hZ-TAi"/>
+                                <exclude reference="yz7-2l-ofH"/>
+                                <include reference="GK9-c5-Cp9"/>
+                                <exclude reference="SgL-zJ-4uQ"/>
+                                <include reference="Y1s-ID-PSY"/>
+                                <include reference="cwy-xK-zYC"/>
+                                <exclude reference="cxh-PT-LFo"/>
+                                <exclude reference="pvM-ED-NKA"/>
+                                <exclude reference="vYh-Uz-otz"/>
+                                <exclude reference="8yA-3z-Nqh"/>
+                                <include reference="b3I-30-M6L"/>
+                                <exclude reference="xfD-5h-EFi"/>
+                                <include reference="8Kb-tK-QNO"/>
+                                <exclude reference="Smh-XP-GSL"/>
+                                <include reference="WYg-hr-ZxT"/>
+                                <exclude reference="ktX-uh-EaR"/>
+                                <include reference="5Kh-qV-Afj"/>
+                                <exclude reference="bii-hU-RZO"/>
+                                <include reference="zVr-f1-pCr"/>
+                                <include reference="8Or-hf-lIr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="GridView" destination="3RC-cE-tql" id="lB9-oZ-bxu"/>
@@ -144,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39.200000000000003" y="25.637181409295355"/>
+            <point key="canvasLocation" x="34.859154929577464" y="22.5"/>
         </scene>
     </scenes>
     <resources>
