@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    @IBOutlet weak var InstagridLabel: UILabel!
+    @IBOutlet weak var directionToSwipe: UILabel!
+    @IBOutlet weak var textForDirection: UILabel!
     
     @IBOutlet weak var GridView: UIView!
     var currentImageButton: GridButton!
@@ -35,45 +38,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func btnGridSelectAct1(_ sender: Any) {
         btnGrid4.isHidden = true
-        formatButtonSize(btn: btnGrid1, x: 8, y: 156, w: 138, h: 136)
-        formatButtonSize(btn: btnGrid2, x: 154, y: 156, w: 138, h: 136)
-        formatButtonSize(btn: btnGrid3, x: 8, y:8, w: 284, h: 140)
-        userSelectButton(btn: btnGridSelect1)
+        formatButtonSize(btn: btnGrid1, x: 8, y: 129, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid2, x: 129, y: 129, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid3, x: 8, y:8, w: 234, h: 113)
+        userSelectButton(btn: btnGridSelect1, btnInt: 1)
         refreshButtonTitle()
     }
     
     func startParameter(){
+        GridView.isHidden = false
         btnGrid4.isHidden = true
-        formatButtonSize(btn: btnGrid1, x: 10, y: 8, w: 138, h: 140)
-        formatButtonSize(btn: btnGrid3, x: 8, y: 156, w: 284, h: 136)
-        formatButtonSize(btn: btnGrid2, x: 154, y: 8, w: 138, h: 140)
-        userSelectButton(btn: btnGridSelect2)
-        refreshButtonTitle()
+        formatButtonSize(btn: btnGrid1, x: 8, y: 8, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid3, x: 8, y: 129, w: 234, h: 113)
+        formatButtonSize(btn: btnGrid2, x: 129, y: 8, w: 113, h: 113)
+        userSelectButton(btn: btnGridSelect2, btnInt: 2)
     }
     
     @IBAction func btnGridSelectAct2(_ sender: Any) {
         btnGrid4.isHidden = true
-        formatButtonSize(btn: btnGrid1, x: 10, y: 8, w: 138, h: 140)
-        formatButtonSize(btn: btnGrid3, x: 8, y: 156, w: 284, h: 136)
-        formatButtonSize(btn: btnGrid2, x: 154, y: 8, w: 138, h: 140)
-        userSelectButton(btn: btnGridSelect2)
+        formatButtonSize(btn: btnGrid1, x: 8, y: 8, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid3, x: 8, y: 129, w: 234, h: 113)
+        formatButtonSize(btn: btnGrid2, x: 129, y: 8, w: 113, h: 113)
+        userSelectButton(btn: btnGridSelect2, btnInt: 2)
         refreshButtonTitle()
     }
     @IBAction func btnGridSelectAct3(_ sender: Any) {
         btnGrid4.isHidden = false
-        formatButtonSize(btn: btnGrid1, x: 8, y: 8, w: 138, h: 140)
-        formatButtonSize(btn: btnGrid2, x: 154, y: 8, w: 138, h: 140)
-        formatButtonSize(btn: btnGrid3, x: 8, y: 156, w: 138, h: 136)
-        formatButtonSize(btn: btnGrid4, x: 154, y: 156, w: 138, h: 136)
-        userSelectButton(btn: btnGridSelect3)
+        formatButtonSize(btn: btnGrid1, x: 8, y: 8, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid2, x: 129, y: 8, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid3, x: 8, y: 129, w: 113, h: 113)
+        formatButtonSize(btn: btnGrid4, x: 129, y: 129, w: 113, h: 113)
+        userSelectButton(btn: btnGridSelect3, btnInt: 3)
         refreshButtonTitle()
     }
     
-    func userSelectButton(btn: GridChoiceButton){
+    func userSelectButton(btn: GridChoiceButton, btnInt: Int){
         btnGridSelect1.changeState(.standard, Btn: 1)
         btnGridSelect2.changeState(.standard, Btn: 2)
         btnGridSelect3.changeState(.standard, Btn: 3)
-        btn.changeState(.selected, Btn: 0)
+        btn.changeState(.selected, Btn: btnInt)
+        
     }
     
     func refreshButtonTitle(){
@@ -86,7 +90,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func chooseImage(){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        let actionSheet = UIAlertController(title: "Photo srouce", message: "choose a source", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Photo source", message: "choose a source", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (action:UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
@@ -95,6 +99,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
     }
+    
+
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { context in
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                self.directionToSwipe.text = "<"
+                self.textForDirection.text = "swipe left for shared"
+            } else {
+                self.directionToSwipe.text = "^"
+                self.textForDirection.text = "swipe up for shared"
+            }
+        })
+    }
+    
     @IBAction func buttonAddImage1(_ sender: Any) {
         chooseImage()
         currentImageButton = btnGrid1
@@ -125,39 +144,70 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        //decalred gesture recognizer on GridView
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            self.directionToSwipe.text = "<"
+            self.textForDirection.text = "swipe left for shared"
+        } else {
+            self.directionToSwipe.text = "^"
+            self.textForDirection.text = "swipe up for shared"
+        }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
     
-    //switch for different state of gesture
     @objc func dragGridView(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: GridView)
+        let Y = translation.y
+        let X = translation.x
         switch sender.state {
         case .began, .changed:
-            transformGridViewWith(gesture: sender)
-        case .ended, .cancelled:
-            afterDragGridView()
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                if  X < 0 {
+                    GridView.transform = CGAffineTransform(translationX: X, y: 0)
+                } else {
+                    print("Pas de changement")
+                }
+            } else { // portrait
+                if  Y < 0 {
+                    GridView.transform = CGAffineTransform(translationX: 0, y: Y)
+                } else {
+                    print("Pas de changement")
+                }
+            }
+        case .ended,.cancelled:
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                if  X < 0 {
+                    sharedGridImage()
+                } else {
+                    print("Pas de changement")
+                }
+            } else {
+                if  Y < 0 {
+                    sharedGridImage()
+                } else {
+                    print("Pas de changement")
+                }
+            }
         default:
             break
         }
     }
     
-    //Change Y position to GridView
-    private func transformGridViewWith(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: GridView)
-        GridView.transform = CGAffineTransform(translationX: 0, y: translation.y)
-        
+    private func gridViewDragTop(){
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            GridView.transform = CGAffineTransform(translationX: -1000, y: 0)
+        } else {
+            GridView.transform = CGAffineTransform(translationX: 0, y: -1000)
+        }
     }
     
-    // réinitialized old UIview (GridView) position and shared image.
-    private func afterDragGridView() {
+    private func gridViewDragBot(){
         GridView.transform = CGAffineTransform(translationX: 0, y: 0)
-        sharedGridImage()
     }
     
-    // use this function to execute a screenshot of GridView and transform this UIView to UIImage for shared this.
     private func recupGridImage(view: UIView) -> UIImage{
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let image = renderer.image { ctx in
@@ -166,12 +216,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return image
     }
     
-    // function for shared UIImage to application/Library or other.
     private func sharedGridImage(){
         let image = recupGridImage(view: GridView)
         let items = [image]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
+        gridViewDragTop()
+        ac.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            self.gridViewDragBot()
+        }
     }
     
     
