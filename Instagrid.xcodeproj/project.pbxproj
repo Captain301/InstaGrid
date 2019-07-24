@@ -78,6 +78,8 @@
 		1589B45621ECC528006373D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1532FF7421F8E82800BD6C4C /* GridButton.swift */,
+				1589B46121ECDB5D006373D4 /* GridChoiceButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,9 +87,8 @@
 		1589B45721ECC536006373D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1589B44C21ECC4E5006373D4 /* LaunchScreen.storyboard */,
 				1589B44421ECC4E3006373D4 /* Main.storyboard */,
-				1589B46121ECDB5D006373D4 /* GridChoiceButton.swift */,
-				1532FF7421F8E82800BD6C4C /* GridButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,7 +109,6 @@
 				1589B44F21ECC4E5006373D4 /* Info.plist */,
 				1589B44721ECC4E3006373D4 /* Instagrid.xcdatamodeld */,
 				1589B44A21ECC4E5006373D4 /* Assets.xcassets */,
-				1589B44C21ECC4E5006373D4 /* LaunchScreen.storyboard */,
 				1589B44021ECC4E3006373D4 /* AppDelegate.swift */,
 			);
 			path = "Supporting files";

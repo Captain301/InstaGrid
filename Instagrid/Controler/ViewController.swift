@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
     @IBOutlet weak var InstagridLabel: UILabel!
     @IBOutlet weak var directionToSwipe: UILabel!
     @IBOutlet weak var textForDirection: UILabel!
@@ -19,6 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.currentImageButton = btnGrid2
         super.init(coder: aDecoder)
     }
+    
     @IBOutlet weak var btnGridSelect1: GridChoiceButton!
     @IBOutlet weak var btnGridSelect2: GridChoiceButton!
     @IBOutlet weak var btnGridSelect3: GridChoiceButton!
@@ -42,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         formatButtonSize(btn: btnGrid2, x: 129, y: 129, w: 113, h: 113)
         formatButtonSize(btn: btnGrid3, x: 8, y:8, w: 234, h: 113)
         userSelectButton(btn: btnGridSelect1, btnInt: 1)
-        refreshButtonTitle()
+        refreshButtonTitle(gridButton: btnGrid1)
     }
     
     func startParameter(){
@@ -60,7 +62,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         formatButtonSize(btn: btnGrid3, x: 8, y: 129, w: 234, h: 113)
         formatButtonSize(btn: btnGrid2, x: 129, y: 8, w: 113, h: 113)
         userSelectButton(btn: btnGridSelect2, btnInt: 2)
-        refreshButtonTitle()
+        refreshButtonTitle(gridButton: btnGrid2)
     }
     @IBAction func btnGridSelectAct3(_ sender: Any) {
         btnGrid4.isHidden = false
@@ -69,7 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         formatButtonSize(btn: btnGrid3, x: 8, y: 129, w: 113, h: 113)
         formatButtonSize(btn: btnGrid4, x: 129, y: 129, w: 113, h: 113)
         userSelectButton(btn: btnGridSelect3, btnInt: 3)
-        refreshButtonTitle()
+        refreshButtonTitle(gridButton: btnGrid3)
     }
     
     func userSelectButton(btn: GridChoiceButton, btnInt: Int){
@@ -80,13 +82,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func refreshButtonTitle(){
-        if btnGrid1.imageAssigned == false{btnGrid1.setTitle("+", for: .normal)}
-        if btnGrid2.imageAssigned == false{btnGrid2.setTitle("+", for: .normal)}
-        if btnGrid3.imageAssigned == false{btnGrid3.setTitle("+", for: .normal)}
-        if btnGrid4.imageAssigned == false{btnGrid4.setTitle("+", for: .normal)}
+    func refreshButtonTitle(gridButton: GridButton){
+        if gridButton.imageAssigned == false{btnGrid1.setTitle("+", for: .normal)}
     }
     
+    // UIActivityControler apear for user select his image
     func chooseImage(){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 
-    
+    // When iphone orientation change label change
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { context in
             if UIApplication.shared.statusBarOrientation.isLandscape {
@@ -131,12 +131,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         currentImageButton = btnGrid4
     }
     
+    // re-assign new background on GridButton with user image selected
     func newButtonBackground(img: UIImage, btn: GridButton){
-        btn.setBackgroundImage(img, for: .normal)
+        let mainImageView = UIImageView(image:img)
+        mainImageView.contentMode = .scaleAspectFit
+        print("assignation d'image")
+        btn.setBackgroundImage(mainImageView.image, for: .normal)
+        print("image assigner")
         btn.setTitle("", for: .normal)
         btn.imageAssigned = true
     }
     
+    //
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         newButtonBackground(img: image, btn: currentImageButton)
@@ -159,6 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
     
+    // method when user drag GridView to left or top, if is landscape or portrait
     @objc func dragGridView(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: GridView)
         let Y = translation.y
@@ -209,6 +216,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         GridView.transform = CGAffineTransform(translationX: 0, y: 0)
     }
     
+    // screen GridView for sharing image
     private func recupGridImage(view: UIView) -> UIImage{
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let image = renderer.image { ctx in
@@ -217,6 +225,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return image
     }
     
+    // shared image to user selected application
     private func sharedGridImage(){
         let image = recupGridImage(view: GridView)
         let items = [image]
