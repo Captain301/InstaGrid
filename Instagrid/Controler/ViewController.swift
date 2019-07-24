@@ -154,6 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.directionToSwipe.text = "^"
             self.textForDirection.text = "swipe up for shared"
         }
+        startParameter()
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
