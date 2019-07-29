@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // UIActivityControler apear for user select his image
-    func chooseImage(){
+    private func chooseImage(){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         let actionSheet = UIAlertController(title: "Photo source", message: "choose a source", preferredStyle: .actionSheet)
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 
-    // When iphone orientation change label change
+    // When iphone orientation change -> label change
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { context in
             if UIApplication.shared.statusBarOrientation.isLandscape {
@@ -132,7 +132,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // re-assign new background on GridButton with user image selected
-    func newButtonBackground(img: UIImage, btn: GridButton){
+    private func newButtonBackground(img: UIImage, btn: GridButton){
         let mainImageView = UIImageView(image:img)
         mainImageView.contentMode = .scaleAspectFit
         print("assignation d'image")
@@ -144,9 +144,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         newButtonBackground(img: image, btn: currentImageButton)
         picker.dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -160,7 +162,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.directionToSwipe.text = "^"
             self.textForDirection.text = "swipe up for shared"
         }
+        
         startParameter()
+        
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
@@ -170,7 +174,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let translation = sender.translation(in: GridView)
         let Y = translation.y
         let X = translation.x
+        
         switch sender.state {
+            
         case .began, .changed:
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 if  X < 0 {
@@ -185,6 +191,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     print("Pas de changement")
                 }
             }
+            
         case .ended,.cancelled:
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 if  X < 0 {
@@ -199,9 +206,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     print("Pas de changement")
                 }
             }
+            
         default:
             break
         }
+        
     }
     
     private func gridViewDragTop(){
@@ -231,7 +240,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let items = [image]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
+        
         gridViewDragTop()
+        
         ac.completionWithItemsHandler = {
             (activity, success, items, error) in
             self.gridViewDragBot()
