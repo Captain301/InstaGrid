@@ -6,6 +6,8 @@
 //  Copyright © 2019 rgrb. All rights reserved.
 //
 
+// bug details: when view jump to -1000 the view is hidden but when i move view in -200 she is no hidden end execute animation correctly.
+
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -168,6 +170,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear((GridView != nil))
+        print("========== DidAppear ===============")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear((GridView != nil))
+        print("========== DidDisappear ============")
+    }
     
     // method when user drag GridView to left or top, if is landscape or portrait
     @objc func dragGridView(_ sender: UIPanGestureRecognizer) {
@@ -195,6 +206,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case .ended,.cancelled:
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 if  X < 0 {
+                    GridView.transform = CGAffineTransform(translationX: 0, y: Y - 100)
                     sharedGridImage()
                 } else {
                     print("Pas de changement")
@@ -222,7 +234,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     private func gridViewDragBot(){
-        GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            GridView.transform = CGAffineTransform(translationX: -500, y: 0)
+            GridView.transform = CGAffineTransform(translationX: -400, y: 0)
+            GridView.transform = CGAffineTransform(translationX: -300, y: 0)
+            GridView.transform = CGAffineTransform(translationX: -200, y: 0)
+            GridView.transform = CGAffineTransform(translationX: -100, y: 0)
+            GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+        } else {
+            GridView.transform = CGAffineTransform(translationX: 0, y: -500)
+            print("Acte")
+            GridView.transform = CGAffineTransform(translationX: 0, y: -400)
+            print("Acte")
+            GridView.transform = CGAffineTransform(translationX: 0, y: -300)
+            print("Acte")
+            GridView.transform = CGAffineTransform(translationX: 0, y: -200)
+            print("Acte")
+            GridView.transform = CGAffineTransform(translationX: 0, y: -100)
+            print("Acte")
+            GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+            print("Acte")
+        }
     }
     
     // screen GridView for sharing image
@@ -241,16 +273,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
         
-        gridViewDragTop()
         
         ac.completionWithItemsHandler = {
             (activity, success, items, error) in
-            self.gridViewDragBot()
+            self.GridView.transform = CGAffineTransform(translationX: 0, y: 0)
         }
     }
-    
-    
-
-
 }
 
