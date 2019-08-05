@@ -170,15 +170,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridView(_:)))
         GridView.addGestureRecognizer(panGestureRecognizer)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear((GridView != nil))
-        print("========== DidAppear ===============")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear((GridView != nil))
-        print("========== DidDisappear ============")
-    }
     
     // method when user drag GridView to left or top, if is landscape or portrait
     @objc func dragGridView(_ sender: UIPanGestureRecognizer) {
@@ -192,12 +183,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 if  X < 0 {
                     GridView.transform = CGAffineTransform(translationX: X, y: 0)
+                    
                 } else {
                     print("Pas de changement")
                 }
             } else { // portrait
                 if  Y < 0 {
                     GridView.transform = CGAffineTransform(translationX: 0, y: Y)
+                    
                 } else {
                     print("Pas de changement")
                 }
@@ -206,13 +199,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case .ended,.cancelled:
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 if  X < 0 {
-                    GridView.transform = CGAffineTransform(translationX: 0, y: Y - 100)
+                    gridViewDragTop()
                     sharedGridImage()
                 } else {
                     print("Pas de changement")
                 }
             } else {
                 if  Y < 0 {
+                    gridViewDragTop()
                     sharedGridImage()
                 } else {
                     print("Pas de changement")
@@ -227,37 +221,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     private func gridViewDragTop(){
         if UIApplication.shared.statusBarOrientation.isLandscape {
-            GridView.transform = CGAffineTransform(translationX: -1000, y: 0)
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+                self.GridView.transform = CGAffineTransform(translationX: -1000, y: 0)
+            }, completion: nil)
         } else {
-            GridView.transform = CGAffineTransform(translationX: 0, y: -1000)
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+                self.GridView.transform = CGAffineTransform(translationX: 0, y: -1000)
+            }, completion: nil)
         }
     }
     
     private func gridViewDragBot(){
-        if UIApplication.shared.statusBarOrientation.isLandscape {
-            GridView.transform = CGAffineTransform(translationX: -500, y: 0)
-            GridView.transform = CGAffineTransform(translationX: -400, y: 0)
-            GridView.transform = CGAffineTransform(translationX: -300, y: 0)
-            GridView.transform = CGAffineTransform(translationX: -200, y: 0)
-            GridView.transform = CGAffineTransform(translationX: -100, y: 0)
-            GridView.transform = CGAffineTransform(translationX: 0, y: 0)
-        } else {
-            GridView.transform = CGAffineTransform(translationX: 0, y: -500)
-            print("Acte")
-            GridView.transform = CGAffineTransform(translationX: 0, y: -400)
-            print("Acte")
-            GridView.transform = CGAffineTransform(translationX: 0, y: -300)
-            print("Acte")
-            GridView.transform = CGAffineTransform(translationX: 0, y: -200)
-            print("Acte")
-            GridView.transform = CGAffineTransform(translationX: 0, y: -100)
-            print("Acte")
-            GridView.transform = CGAffineTransform(translationX: 0, y: 0)
-            print("Acte")
-        }
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
+                self.GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+            }, completion: nil)
     }
     
-    // screen GridView for sharing image
+    // make screenshoot GridView for sharing image
     private func recupGridImage(view: UIView) -> UIImage{
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let image = renderer.image { ctx in
@@ -276,7 +256,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         ac.completionWithItemsHandler = {
             (activity, success, items, error) in
-            self.GridView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.gridViewDragBot()
         }
     }
 }
