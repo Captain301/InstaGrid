@@ -84,6 +84,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // re-assign "+" when image are non-assigned personal user image
     func refreshButtonTitle(gridButton: GridButton){
         if gridButton.imageAssigned == false{btnGrid1.setTitle("+", for: .normal)}
     }
@@ -133,7 +134,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         currentImageButton = btnGrid4
     }
     
-    // re-assign new background on GridButton with user image selected
+    // re-assign new background and change state "Attribute" to signal image is attribute
     private func newButtonBackground(img: UIImage, btn: GridButton){
         let mainImageView = UIImageView(image:img)
         mainImageView.contentMode = .scaleAspectFit
@@ -144,7 +145,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         btn.imageAssigned = true
     }
     
-    //
+    // recup image to user's galery
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
@@ -153,7 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    
+    // starting interface
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -219,6 +220,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // when user movement is done the application create animation to top or left if is landscape or portrait
     private func gridViewDragTop(){
         if UIApplication.shared.statusBarOrientation.isLandscape {
             UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
@@ -231,6 +233,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // create animation for return original GridView position
     private func gridViewDragBot(){
             UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
                 self.GridView.transform = CGAffineTransform(translationX: 0, y: 0)
